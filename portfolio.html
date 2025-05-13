@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nikhil Pandey Portfolio</title>
+
+    <!-- Meta Description -->
+    <meta name="description" content="Nikhil Pandey's portfolio website. Showcasing education, projects, and contact details of an aspiring computer science professional.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    animation: {
+                        'float': 'float 3s ease-in-out infinite',
+                        'bounce-slow': 'bounce 3s infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        };
+    </script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in-out both;
+        }
+        .slide-in {
+            animation: slideIn 1s ease-in-out both;
+        }
+        .scale-in {
+            animation: scaleIn 0.5s ease-in-out both;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .gradient-text {
+            background: linear-gradient(45deg, #3B82F6, #8B5CF6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300">
+
+<!-- Navbar -->
+<nav class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg sticky top-0 z-50 transition">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+        <a href="#" class="text-2xl font-bold gradient-text">Nikhil Pandey</a>
+        <div class="space-x-6 hidden md:flex items-center">
+            <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-colors">About</a>
+            <a href="#education" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-colors">Education</a>
+            <a href="#projects" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-colors">Projects</a>
+            <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-colors">Contact</a>
+        </div>
+        <button id="theme-toggle" class="ml-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700 text-black dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+            <i class="fas fa-moon dark:hidden"></i>
+            <i class="fas fa-sun hidden dark:block"></i>
+        </button>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-600 via-purple-600 to-pink-500 text-white py-32 px-4 text-center overflow-hidden">
+    <div class="absolute inset-0">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJNMzYgMzRjMC0yLjIxLTEuNzktNC00LTRzLTQgMS43OS00IDQgMS43OSA0IDQgNCA0LTEuNzkgNC00eiIvPjwvZz48L2c+PC9zdmc+')] opacity-20"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-black/50"></div>
+    </div>
+    <div class="relative z-10 max-w-4xl mx-auto">
+        <div class="flex justify-center items-center mb-8">
+            <div class="p-2 bg-white rounded-2xl shadow-2xl">
+                <img src="E:/PROJECT NIK/protfolio/my.png" alt="Profile" class="w-40 h-40 rounded-2xl object-contain bg-white">
+            </div>
+        </div>
+        <h1 class="text-7xl font-bold mb-6 slide-in bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">Hi, I'm Nikhil Pandey</h1>
+        <p class="text-3xl mb-12 slide-in text-blue-100">Aspiring Computer Science Professional</p>
+        <div class="flex justify-center space-x-6">
+            <a href="#contact" class="group bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+                <span class="flex items-center">
+                    Contact Me
+                    <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                </span>
+            </a>
+            <a href="#projects" class="group bg-transparent border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
+                <span class="flex items-center">
+                    View Projects
+                    <i class="fas fa-code ml-2 transform group-hover:rotate-12 transition-transform"></i>
+                </span>
+            </a>
+        </div>
+    </div>
+</header>
+
+<!-- About Section -->
+<section id="about" class="py-20 px-4 md:px-24 bg-gray-100 dark:bg-gray-800 fade-in">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="text-4xl font-bold text-center mb-8 gradient-text">About Me</h2>
+        <div class="bg-white dark:bg-gray-900 rounded-2xl p-10 shadow-lg">
+            <p class="text-2xl text-gray-700 dark:text-gray-300 leading-relaxed mb-12 text-center">
+                Hello! I'm Nikhil Pandey, currently pursuing a diploma in Computer Science. I am passionate about technology, coding, and building innovative projects. I aim to contribute to the tech world with my skills and creativity.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center gap-8">
+                <div class="flex-1 text-center p-8 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <i class="fas fa-code text-5xl text-blue-600 mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Web Development</h3>
+                </div>
+                <div class="flex-1 text-center p-8 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <i class="fas fa-database text-5xl text-green-600 mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">Database (MySQL)</h3>
+                </div>
+                <div class="flex-1 text-center p-8 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <i class="fas fa-robot text-5xl text-red-600 mb-4"></i>
+                    <h3 class="font-bold text-xl mb-2">AI</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Building smart solutions using AI for automation and data analysis.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Education Section -->
+<section id="education" class="py-20 px-4 md:px-24 bg-gray-50 dark:bg-gray-900 fade-in">
+    <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Education</h2>
+    <div class="max-w-4xl mx-auto">
+        <div class="relative">
+            <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-500/20"></div>
+            <div class="space-y-8">
+                <div class="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg card-hover">
+                    <div class="absolute -left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center">
+                        <i class="fas fa-graduation-cap text-white"></i>
+                    </div>
+                    <div class="ml-8">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">High School</h3>
+                        <p class="text-gray-700 dark:text-gray-300">Completed with a strong foundation in science and mathematics.</p>
+                    </div>
+                </div>
+                <div class="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg card-hover">
+                    <div class="absolute -left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center">
+                        <i class="fas fa-laptop-code text-white"></i>
+                    </div>
+                    <div class="ml-8">
+                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Diploma in Computer Science</h3>
+                        <p class="text-gray-700 dark:text-gray-300">Currently pursuing, focusing on programming, algorithms, and software development.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="py-20 px-4 md:px-24 bg-gradient-to-b from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 fade-in">
+    <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Featured Projects</h2>
+    <div class="flex justify-center">
+        <div class="group bg-white dark:bg-gray-900 rounded-2xl shadow-xl overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl flex flex-col md:flex-row w-full max-w-5xl md:gap-8 p-6 md:p-12">
+            <!-- Project Image -->
+            <div class="relative md:w-1/2 h-64 md:h-auto overflow-hidden flex-shrink-0">
+                <img src="E:/PROJECT NIK/protfolio/image.png" alt="Project 1" class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <!-- Project Content -->
+            <div class="flex flex-col justify-center md:w-1/2">
+                <div class="flex items-center justify-between mb-4">
+                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">Fama Barber Shop Website</h3>
+                    <span class="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full">Web Development</span>
+                </div>
+                <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                    The Fama Barber Shop website is a modern, responsive platform featuring a sleek dark/light mode design. It includes a main page with services, team profiles, and contact information, plus a portfolio page showcasing work through an interactive gallery.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="E:/PROJECT NIK/project/index.html" class="flex-1 inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors group">
+                        <i class="fas fa-external-link-alt mr-2 transform group-hover:translate-x-1 transition-transform"></i>
+                        Live Demo
+                    </a>
+                    <a href="#" class="flex-1 inline-flex items-center justify-center px-6 py-3 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors group">
+                        <i class="fab fa-github mr-2 transform group-hover:rotate-12 transition-transform"></i>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Contact Section -->
+<section id="contact" class="py-20 px-4 md:px-24 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 fade-in">
+    <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Get In Touch</h2>
+    <div class="max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-12">
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl transform transition-all duration-500 hover:-translate-y-1">
+                <h3 class="text-2xl font-semibold mb-8 text-gray-800 dark:text-gray-100">Let's Connect</h3>
+                <div class="space-y-6">
+                    <a href="mailto:pandeynikhil429@gmail.com" class="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors group">
+                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-envelope text-blue-600 dark:text-blue-400"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Email</p>
+                            <p class="text-gray-700 dark:text-gray-300 font-medium">pandeynikhil429@gmail.com</p>
+                        </div>
+                    </a>
+                    <a href="tel:+918273646729" class="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors group">
+                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                            <i class="fas fa-phone text-purple-600 dark:text-purple-400"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400">Phone</p>
+                            <p class="text-gray-700 dark:text-gray-300 font-medium">+91 8273646729</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="mt-8 flex space-x-4">
+                    <a href="#" class="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-gray-900 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-blue-400 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12">
+                        <i class="fab fa-twitter text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl transform transition-all duration-500 hover:-translate-y-1">
+                <h3 class="text-2xl font-semibold mb-8 text-gray-800 dark:text-gray-100">Send Message</h3>
+                <form class="space-y-6">
+                    <div class="relative">
+                        <input type="text" placeholder="Your Name" class="w-full px-6 py-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300">
+                        <i class="fas fa-user absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                    <div class="relative">
+                        <input type="email" placeholder="Your Email" class="w-full px-6 py-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300">
+                        <i class="fas fa-envelope absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+                    </div>
+                    <div class="relative">
+                        <textarea placeholder="Your Message" rows="4" class="w-full px-6 py-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"></textarea>
+                        <i class="fas fa-comment absolute right-4 top-6 text-gray-400"></i>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center group">
+                        <span>Send Message</span>
+                        <i class="fas fa-paper-plane ml-2 transform group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-gradient-to-b from-gray-900 to-black text-white py-12">
+    <div class="max-w-7xl mx-auto px-4">
+        <div class="grid md:grid-cols-3 gap-8 mb-8">
+            <div>
+                <h3 class="text-2xl font-bold mb-4 gradient-text">Nikhil Pandey</h3>
+                <p class="text-gray-400">Aspiring Computer Science Professional passionate about creating innovative solutions.</p>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
+                    <li><a href="#education" class="text-gray-400 hover:text-white transition-colors">Education</a></li>
+                    <li><a href="#projects" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
+                    <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg font-semibold mb-4">Connect</h4>
+                <div class="flex space-x-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-900 transition-all duration-300 transform hover:scale-110 hover:rotate-12">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-400 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 text-center">
+            <p class="text-gray-400">&copy; 2024 Nikhil Pandey. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- Theme Toggle Script -->
+<script>
+    // Load user's last theme preference
+    if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+    }
+
+    // Theme toggle logic
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
+        localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
+    });
+
+    // Intersection Observer for animations
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('section').forEach(section => {
+        observer.observe(section);
+    });
+</script>
+
+</body>
+</html>
