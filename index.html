@@ -6,25 +6,6 @@
     <title>Nikhil Portfolio</title>
     <meta name="description" content="Nikhil Pandey's portfolio website. Showcasing education, projects, and contact details of an aspiring computer science professional.">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    animation: {
-                        'float': 'float 3s ease-in-out infinite',
-                        'bounce-slow': 'bounce 3s infinite',
-                    },
-                    keyframes: {
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
-                        }
-                    }
-                }
-            }
-        };
-    </script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -56,6 +37,14 @@
             transform: translateY(-10px);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
+        .certificate-carousel {
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+        }
+        .certificate-card {
+            scroll-snap-align: start;
+            flex: 0 0 auto;
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300">
@@ -67,6 +56,7 @@
         <div class="space-x-6 hidden md:flex items-center">
             <a href="#about" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-colors">About</a>
             <a href="#education" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-colors">Education</a>
+            <a href="#certificates" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-colors">Certificates</a>
             <a href="#projects" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-colors">Projects</a>
             <a href="#contact" class="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-colors">Contact</a>
         </div>
@@ -166,6 +156,27 @@
     </div>
 </section>
 
+<!-- Certificates Section -->
+<section id="certificates" class="py-20 px-4 md:px-24 bg-gray-100 dark:bg-gray-800 fade-in">
+    <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Certificates</h2>
+    <!-- Marquee of Images -->
+    <div class="overflow-hidden mb-8">
+        <marquee behavior="scroll" direction="left" scrollamount="7" onmouseover="this.stop();" onmouseout="this.start();">
+            <a href="https://media.licdn.com/dms/image/v2/D4D22AQHKncZdD4aIhw/feedshare-shrink_2048_1536/B4DZd9eqboGgAo-/0/1750156887116?e=1753315200&v=beta&t=LDd9sUSP1txmALF2if0yenJs00NDMUncRGJrAaxuvVc" target="_blank" style="display:inline-block; margin-right:80px;">
+                <img src="https://media.licdn.com/dms/image/v2/D4D22AQHKncZdD4aIhw/feedshare-shrink_2048_1536/B4DZd9eqboGgAo-/0/1750156887116?e=1753315200&v=beta&t=LDd9sUSP1txmALF2if0yenJs00NDMUncRGJrAaxuvVc"
+                     alt="DSA Mastery Certificate"
+                     class="inline-block h-80 max-w-xl rounded-2xl shadow-2xl border-2 border-blue-200 hover:scale-105 transition-transform duration-300 bg-white" />
+            </a>
+            <a href="https://media.licdn.com/dms/image/v2/D4D22AQH1OAN34D_l4A/feedshare-shrink_2048_1536/B4DZdAdWLWHkAo-/0/1749133127345?e=1753315200&v=beta&t=Fi7NucuYsmrPCwLEhfZqik0-iD3Fb6PYkpmoPjTibGs" target="_blank" style="display:inline-block; margin-right:80px;">
+                <img src="https://media.licdn.com/dms/image/v2/D4D22AQH1OAN34D_l4A/feedshare-shrink_2048_1536/B4DZdAdWLWHkAo-/0/1749133127345?e=1753315200&v=beta&t=Fi7NucuYsmrPCwLEhfZqik0-iD3Fb6PYkpmoPjTibGs"
+                     alt="AI Certificate"
+                     class="inline-block h-80 max-w-xl rounded-2xl shadow-2xl border-2 border-blue-200 hover:scale-105 transition-transform duration-300 bg-white" />
+            </a>
+            <!-- Add more certificate images here as needed -->
+        </marquee>
+    </div>
+</section>
+
 <!-- Projects Section -->
 <section id="projects" class="py-20 px-4 md:px-24 bg-gradient-to-b from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 fade-in">
     <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Featured Projects</h2>
@@ -257,30 +268,31 @@
                     </a>
                 </div>
                 <div class="mt-8 flex space-x-4">
-                    <a href="#" class="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12">
-                        <i class="fab fa-linkedin-in text-xl"></i>
-                    </a>
+                   <a href="https://www.linkedin.com/in/nikhil-pandey-45b276276" target="_blank" rel="noopener noreferrer" 
+   class="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 
+          hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12"
+   aria-label="LinkedIn Profile">
+   <i class="fab fa-linkedin-in text-xl"></i>
+</a>
+
                     <a href="https://github.com/n2023ik/my-portfoli" target="_blank" class="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-gray-900 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12">
                         <i class="fab fa-github text-xl"></i>
-                    </a>
-                    <a href="#" class="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-blue-400 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12">
-                        <i class="fab fa-twitter text-xl"></i>
                     </a>
                 </div>
             </div>
             <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl transform transition-all duration-500 hover:-translate-y-1">
                 <h3 class="text-2xl font-semibold mb-8 text-gray-800 dark:text-gray-100">Send Message</h3>
-                <form class="space-y-6">
+                <form action="https://formspree.io/f/mgvyzegz" method="POST" class="space-y-6">
                     <div class="relative">
-                        <input type="text" placeholder="Your Name" class="w-full px-6 py-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300">
+                        <input type="text" name="name" placeholder="Your Name" required class="w-full px-6 py-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300">
                         <i class="fas fa-user absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                     </div>
                     <div class="relative">
-                        <input type="email" placeholder="Your Email" class="w-full px-6 py-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300">
+                        <input type="email" name="email" placeholder="Your Email" required class="w-full px-6 py-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300">
                         <i class="fas fa-envelope absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                     </div>
                     <div class="relative">
-                        <textarea placeholder="Your Message" rows="4" class="w-full px-6 py-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"></textarea>
+                        <textarea name="message" placeholder="Your Message" rows="4" required class="w-full px-6 py-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"></textarea>
                         <i class="fas fa-comment absolute right-4 top-6 text-gray-400"></i>
                     </div>
                     <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center group">
@@ -306,6 +318,7 @@
                 <ul class="space-y-2">
                     <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About</a></li>
                     <li><a href="#education" class="text-gray-400 hover:text-white transition-colors">Education</a></li>
+                    <li><a href="#certificates" class="text-gray-400 hover:text-white transition-colors">Certificates</a></li>
                     <li><a href="#projects" class="text-gray-400 hover:text-white transition-colors">Projects</a></li>
                     <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
                 </ul>
@@ -313,14 +326,15 @@
             <div>
                 <h4 class="text-lg font-semibold mb-4">Connect</h4>
                 <div class="flex space-x-4">
-                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
+                   <a href="https://www.linkedin.com/in/nikhil-pandey-45b276276" 
+   target="_blank" 
+   rel="noopener noreferrer"
+   class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12"
+   aria-label="LinkedIn Profile">
+   <i class="fab fa-linkedin-in"></i>
+</a>
                     <a href="https://github.com/n2023ik/my-portfoli" target="_blank" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-gray-100 hover:text-gray-900 transition-all duration-300 transform hover:scale-110 hover:rotate-12">
                         <i class="fab fa-github"></i>
-                    </a>
-                    <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-blue-400 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12">
-                        <i class="fab fa-twitter"></i>
                     </a>
                 </div>
             </div>
@@ -331,7 +345,7 @@
     </div>
 </footer>
 
-<!-- Theme Toggle Script -->
+<!-- Theme Toggle & Carousel Script -->
 <script>
     // Toggle dark mode
     const themeToggle = document.getElementById('theme-toggle');
@@ -359,7 +373,92 @@
     document.querySelectorAll('section').forEach(section => {
         observer.observe(section);
     });
+
+    // Certificate Carousel Navigation
+    const carousel = document.querySelector('.certificate-carousel');
+    const certificates = document.querySelectorAll('.certificate-card');
+    const dots = document.querySelectorAll('.certificate-carousel + div button');
+    let currentIndex = 0;
+
+    function updateCarousel() {
+        const cardWidth = certificates[0].offsetWidth + 32; // card width + gap
+        carousel.scrollTo({
+            left: currentIndex * cardWidth,
+            behavior: 'smooth'
+        });
+        // Update dots
+        dots.forEach((dot, idx) => {
+            dot.classList.toggle('bg-blue-500', idx === currentIndex);
+        });
+    }
+
+    // Left/Right arrow buttons
+    const leftBtn = document.querySelector('.certificate-carousel').parentElement.querySelector('button:first-of-type');
+    const rightBtn = document.querySelector('.certificate-carousel').parentElement.querySelector('button:last-of-type');
+
+    leftBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + certificates.length) % certificates.length;
+        updateCarousel();
+    });
+    rightBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % certificates.length;
+        updateCarousel();
+    });
+
+    // Initialize carousel position
+    updateCarousel();
 </script>
 
+<!-- Carousel Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const cards = document.querySelectorAll('.certificate-card');
+    const leftArrow = document.getElementById('left-arrow');
+    const rightArrow = document.getElementById('right-arrow');
+    const dots = document.querySelectorAll('.dot');
+    let currentIndex = 0;
+
+    function showCard(idx, direction = 0) {
+        cards.forEach((card, i) => {
+            card.style.display = i === idx ? 'block' : 'none';
+            card.style.transform = '';
+            card.style.opacity = i === idx ? '1' : '0';
+        });
+        // Animate slide
+        if (direction !== 0) {
+            cards[idx].style.transform = `translateX(${direction * 100}%)`;
+            setTimeout(() => {
+                cards[idx].style.transition = 'transform 0.5s, opacity 0.5s';
+                cards[idx].style.transform = 'translateX(0)';
+            }, 10);
+            setTimeout(() => {
+                cards[idx].style.transition = '';
+            }, 510);
+        }
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('bg-blue-500', i === idx);
+            dot.classList.toggle('bg-gray-300', i !== idx);
+        });
+    }
+    leftArrow.onclick = () => {
+        let prev = (currentIndex - 1 + cards.length) % cards.length;
+        showCard(prev, -1);
+        currentIndex = prev;
+    };
+    rightArrow.onclick = () => {
+        let next = (currentIndex + 1) % cards.length;
+        showCard(next, 1);
+        currentIndex = next;
+    };
+    dots.forEach((dot, idx) => {
+        dot.onclick = () => {
+            let direction = idx > currentIndex ? 1 : -1;
+            showCard(idx, direction);
+            currentIndex = idx;
+        };
+    });
+    showCard(0);
+});
+</script>
 </body>
 </html>
