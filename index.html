@@ -5,12 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nikhil Portfolio</title>
     <meta name="description" content="Nikhil Pandey's portfolio website. Showcasing education, projects, and contact details of an aspiring computer science professional.">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            900: '#0f172a',
+                            800: '#1e293b',
+                            700: '#334155',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { font-family: 'Poppins', sans-serif; scroll-behavior: smooth; }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            scroll-behavior: smooth; 
+            background-color: #f9fafb;
+            color: #1f2937;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.dark {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
         h1, h2, h3 { font-family: 'Playfair Display', serif; }
         .fade-in { animation: fadeIn 1s ease-in-out both; }
         .slide-in { animation: slideIn 1s ease-in-out both; }
@@ -45,9 +71,19 @@
             scroll-snap-align: start;
             flex: 0 0 auto;
         }
+        .dark .section-bg {
+            background-color: #1e293b;
+        }
+        .dark .card-bg {
+            background-color: #1e293b;
+            border-color: #334155;
+        }
+        .dark .text-secondary {
+            color: #cbd5e1;
+        }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800 dark:bg-gray-950 dark:text-gray-100 transition-colors duration-300">
+<body>
 
 <!-- Navbar -->
 <nav class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg sticky top-0 z-50 transition">
@@ -76,20 +112,19 @@
     <div class="relative z-10 max-w-4xl mx-auto">
         <div class="flex justify-center items-center mb-8">
             <div class="p-2 bg-white rounded-2xl shadow-2xl">
-                <!-- Updated profile image to use GitHub raw URL -->
                 <img src="https://github.com/n2023ik/my-portfoli/blob/main/my.jpg?raw=true" alt="Profile" class="w-36 h-36 rounded-2xl object-contain bg-white">
             </div>
         </div>
-        <h1 class="text-7xl font-bold mb-6 slide-in bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">Hi, I'm Nikhil Pandey</h1>
-        <p class="text-3xl mb-12 slide-in text-blue-100">Aspiring Computer Science Professional</p>
-        <div class="flex justify-center space-x-6">
-            <a href="#contact" class="group bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6 slide-in bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-100">Hi, I'm Nikhil Pandey</h1>
+        <p class="text-xl md:text-3xl mb-12 slide-in text-blue-100">Aspiring Computer Science Professional</p>
+        <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
+            <a href="#contact" class="group bg-white text-blue-600 px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 hover:shadow-xl">
                 <span class="flex items-center">
                     Contact Me
                     <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition-transform"></i>
                 </span>
             </a>
-            <a href="#projects" class="group bg-transparent border-2 border-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
+            <a href="#projects" class="group bg-transparent border-2 border-white px-6 py-3 md:px-8 md:py-4 rounded-full font-semibold hover:bg-white/10 transition-all duration-300 transform hover:scale-105">
                 <span class="flex items-center">
                     View Projects
                     <i class="fas fa-code ml-2 transform group-hover:rotate-12 transition-transform"></i>
@@ -100,25 +135,25 @@
 </header>
 
 <!-- About Section -->
-<section id="about" class="py-20 px-4 md:px-24 bg-gray-100 dark:bg-gray-800 fade-in">
+<section id="about" class="py-20 px-4 md:px-24 section-bg fade-in">
     <div class="max-w-5xl mx-auto">
         <h2 class="text-4xl font-bold text-center mb-8 gradient-text">About Me</h2>
-        <div class="bg-white dark:bg-gray-900 rounded-2xl p-10 shadow-lg">
-            <p class="text-2xl text-gray-700 dark:text-gray-300 leading-relaxed mb-12 text-center">
+        <div class="bg-white dark:bg-gray-800 rounded-2xl p-6 md:p-10 shadow-lg">
+            <p class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8 md:mb-12 text-center">
                 Hello! I'm Nikhil Pandey, currently pursuing a diploma in Computer Science. I am passionate about technology, coding, and building innovative projects. I aim to contribute to the tech world with my skills and creativity.
             </p>
-            <div class="flex flex-col md:flex-row justify-center gap-8">
-                <div class="flex-1 text-center p-8 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
-                    <i class="fas fa-code text-5xl text-blue-600 mb-4"></i>
-                    <h3 class="font-bold text-xl mb-2">Web Development</h3>
+            <div class="flex flex-col md:flex-row justify-center gap-4 md:gap-8">
+                <div class="flex-1 text-center p-6 md:p-8 bg-gray-50 dark:bg-gray-700 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <i class="fas fa-code text-4xl md:text-5xl text-blue-600 mb-4"></i>
+                    <h3 class="font-bold text-lg md:text-xl mb-2">Web Development</h3>
                 </div>
-                <div class="flex-1 text-center p-8 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
-                    <i class="fas fa-database text-5xl text-green-600 mb-4"></i>
-                    <h3 class="font-bold text-xl mb-2">Database (MySQL)</h3>
+                <div class="flex-1 text-center p-6 md:p-8 bg-gray-50 dark:bg-gray-700 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <i class="fas fa-database text-4xl md:text-5xl text-green-600 mb-4"></i>
+                    <h3 class="font-bold text-lg md:text-xl mb-2">Database (MySQL)</h3>
                 </div>
-                <div class="flex-1 text-center p-8 bg-gray-50 dark:bg-gray-800 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
-                    <i class="fas fa-robot text-5xl text-red-600 mb-4"></i>
-                    <h3 class="font-bold text-xl mb-2">AI</h3>
+                <div class="flex-1 text-center p-6 md:p-8 bg-gray-50 dark:bg-gray-700 rounded-xl shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <i class="fas fa-robot text-4xl md:text-5xl text-red-600 mb-4"></i>
+                    <h3 class="font-bold text-lg md:text-xl mb-2">AI</h3>
                     <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Building smart solutions using AI for automation and data analysis.</p>
                 </div>
             </div>
@@ -128,26 +163,26 @@
 
 <!-- Education Section -->
 <section id="education" class="py-20 px-4 md:px-24 bg-gray-50 dark:bg-gray-900 fade-in">
-    <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Education</h2>
+    <h2 class="text-4xl font-bold text-center mb-8 md:mb-12 gradient-text">Education</h2>
     <div class="max-w-4xl mx-auto">
         <div class="relative">
             <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-500/20"></div>
-            <div class="space-y-8">
-                <div class="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg card-hover">
+            <div class="space-y-6 md:space-y-8">
+                <div class="relative bg-white dark:bg-gray-800 p-5 md:p-6 rounded-xl shadow-lg card-hover">
                     <div class="absolute -left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full bg-blue-500 flex items-center justify-center">
                         <i class="fas fa-graduation-cap text-white"></i>
                     </div>
                     <div class="ml-8">
-                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">High School</h3>
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-800 dark:text-gray-100">High School</h3>
                         <p class="text-gray-700 dark:text-gray-300">Completed with a strong foundation in science and mathematics.</p>
                     </div>
                 </div>
-                <div class="relative bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg card-hover">
+                <div class="relative bg-white dark:bg-gray-800 p-5 md:p-6 rounded-xl shadow-lg card-hover">
                     <div class="absolute -left-4 top-1/2 transform -translate-y-1/2 w-8 h-8 rounded-full bg-purple-500 flex items-center justify-center">
                         <i class="fas fa-laptop-code text-white"></i>
                     </div>
                     <div class="ml-8">
-                        <h3 class="text-xl font-semibold text-gray-800 dark:text-gray-100">Diploma in Computer Science</h3>
+                        <h3 class="text-lg md:text-xl font-semibold text-gray-800 dark:text-gray-100">Diploma in Computer Science</h3>
                         <p class="text-gray-700 dark:text-gray-300">Currently pursuing, focusing on programming, algorithms, and software development.</p>
                     </div>
                 </div>
@@ -158,51 +193,46 @@
 
 <!-- Certificates Section -->
 <section id="certificates" class="py-20 px-4 md:px-24 bg-gray-100 dark:bg-gray-800 fade-in">
-    <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Certificates</h2>
-    <!-- Marquee of Images -->
+    <h2 class="text-4xl font-bold text-center mb-8 md:mb-12 gradient-text">Certificates</h2>
     <div class="overflow-hidden mb-8">
-        <marquee behavior="scroll" direction="left" scrollamount="7" onmouseover="this.stop();" onmouseout="this.start();">
-            <a href="https://media.licdn.com/dms/image/v2/D4D22AQHKncZdD4aIhw/feedshare-shrink_2048_1536/B4DZd9eqboGgAo-/0/1750156887116?e=1753315200&v=beta&t=LDd9sUSP1txmALF2if0yenJs00NDMUncRGJrAaxuvVc" target="_blank" style="display:inline-block; margin-right:80px;">
+        <div class="flex space-x-6 animate-marquee whitespace-nowrap">
+            <a href="https://media.licdn.com/dms/image/v2/D4D22AQHKncZdD4aIhw/feedshare-shrink_2048_1536/B4DZd9eqboGgAo-/0/1750156887116?e=1753315200&v=beta&t=LDd9sUSP1txmALF2if0yenJs00NDMUncRGJrAaxuvVc" target="_blank" class="inline-block">
                 <img src="https://media.licdn.com/dms/image/v2/D4D22AQHKncZdD4aIhw/feedshare-shrink_2048_1536/B4DZd9eqboGgAo-/0/1750156887116?e=1753315200&v=beta&t=LDd9sUSP1txmALF2if0yenJs00NDMUncRGJrAaxuvVc"
                      alt="DSA Mastery Certificate"
-                     class="inline-block h-80 max-w-xl rounded-2xl shadow-2xl border-2 border-blue-200 hover:scale-105 transition-transform duration-300 bg-white" />
+                     class="h-64 md:h-80 max-w-xs md:max-w-xl rounded-2xl shadow-2xl border-2 border-blue-200 hover:scale-105 transition-transform duration-300 bg-white" />
             </a>
-            <a href="https://media.licdn.com/dms/image/v2/D4D22AQH1OAN34D_l4A/feedshare-shrink_2048_1536/B4DZdAdWLWHkAo-/0/1749133127345?e=1753315200&v=beta&t=Fi7NucuYsmrPCwLEhfZqik0-iD3Fb6PYkpmoPjTibGs" target="_blank" style="display:inline-block; margin-right:80px;">
+            <a href="https://media.licdn.com/dms/image/v2/D4D22AQH1OAN34D_l4A/feedshare-shrink_2048_1536/B4DZdAdWLWHkAo-/0/1749133127345?e=1753315200&v=beta&t=Fi7NucuYsmrPCwLEhfZqik0-iD3Fb6PYkpmoPjTibGs" target="_blank" class="inline-block">
                 <img src="https://media.licdn.com/dms/image/v2/D4D22AQH1OAN34D_l4A/feedshare-shrink_2048_1536/B4DZdAdWLWHkAo-/0/1749133127345?e=1753315200&v=beta&t=Fi7NucuYsmrPCwLEhfZqik0-iD3Fb6PYkpmoPjTibGs"
                      alt="AI Certificate"
-                     class="inline-block h-80 max-w-xl rounded-2xl shadow-2xl border-2 border-blue-200 hover:scale-105 transition-transform duration-300 bg-white" />
+                     class="h-64 md:h-80 max-w-xs md:max-w-xl rounded-2xl shadow-2xl border-2 border-blue-200 hover:scale-105 transition-transform duration-300 bg-white" />
             </a>
-            <!-- Add more certificate images here as needed -->
-        </marquee>
+        </div>
     </div>
 </section>
 
 <!-- Projects Section -->
 <section id="projects" class="py-20 px-4 md:px-24 bg-gradient-to-b from-gray-100 to-white dark:from-gray-800 dark:to-gray-900 fade-in">
-    <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Featured Projects</h2>
-    <div class="flex flex-col gap-12 items-center">
+    <h2 class="text-4xl font-bold text-center mb-12 md:mb-16 gradient-text">Featured Projects</h2>
+    <div class="flex flex-col gap-8 md:gap-12 items-center">
         <!-- Project 1 -->
-        <div class="group bg-white dark:bg-gray-900 rounded-2xl shadow-xl overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl flex flex-col md:flex-row w-full max-w-5xl md:gap-8 p-6 md:p-12">
-            <!-- Project Image -->
-            <div class="relative md:w-1/2 h-64 md:h-auto overflow-hidden flex-shrink-0">
+        <div class="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl flex flex-col md:flex-row w-full max-w-5xl md:gap-8 p-6 md:p-10">
+            <div class="relative md:w-1/2 h-56 md:h-64 overflow-hidden flex-shrink-0">
                 <img src="https://github.com/n2023ik/my-portfoli/blob/main/fama%20web%20page.jpg?raw=true" alt="Fama Barber Shop" class="w-full h-full object-cover transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            <!-- Project Content -->
-            <div class="flex flex-col justify-center md:w-1/2">
+            <div class="flex flex-col justify-center md:w-1/2 mt-6 md:mt-0">
                 <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">Fama Barber Shop Website</h3>
-                    <span class="px-3 py-1 text-sm bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full">Web Development</span>
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-100">Fama Barber Shop Website</h3>
+                    <span class="px-2 py-1 text-xs md:text-sm bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full">Web Development</span>
                 </div>
-                <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                <p class="text-gray-600 dark:text-gray-400 mb-4 md:mb-6 leading-relaxed">
                     The Fama Barber Shop website is a modern, responsive platform featuring a sleek dark/light mode design. It includes a main page with services, team profiles, and contact information, plus a portfolio page showcasing work through an interactive gallery.
                 </p>
-                <div class="flex space-x-4">
-                    <a href="https://n2023ik-git-main-nikhil-pandeys-projects-ca529d7f.vercel.app/" target="_blank" class="flex-1 inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors group">
+                <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                    <a href="https://n2023ik-git-main-nikhil-pandeys-projects-ca529d7f.vercel.app/" target="_blank" class="inline-flex items-center justify-center px-4 py-2 md:px-6 md:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors group">
                         <i class="fas fa-external-link-alt mr-2 transform group-hover:translate-x-1 transition-transform"></i>
                         Live Demo
                     </a>
-                    <a href="https://github.com/n2023ik/nikhil-pandeys-projects" target="_blank" class="flex-1 inline-flex items-center justify-center px-6 py-3 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors group">
+                    <a href="https://github.com/n2023ik/nikhil-pandeys-projects" target="_blank" class="inline-flex items-center justify-center px-4 py-2 md:px-6 md:py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors group">
                         <i class="fab fa-github mr-2 transform group-hover:rotate-12 transition-transform"></i>
                         Source Code
                     </a>
@@ -210,27 +240,24 @@
             </div>
         </div>
         <!-- Project 2 -->
-        <div class="group bg-white dark:bg-gray-900 rounded-2xl shadow-xl overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl flex flex-col md:flex-row w-full max-w-5xl md:gap-8 p-6 md:p-12">
-            <!-- Project Image -->
-            <div class="relative md:w-1/2 h-64 md:h-auto overflow-hidden flex-shrink-0">
+        <div class="group bg-white dark:bg-gray-800 rounded-2xl shadow-xl overflow-hidden transform transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl flex flex-col md:flex-row w-full max-w-5xl md:gap-8 p-6 md:p-10">
+            <div class="relative md:w-1/2 h-56 md:h-64 overflow-hidden flex-shrink-0">
                 <img src="https://github.com/n2023ik/my-portfoli/blob/main/user%20dashboard.jpg?raw=true" alt="User Dashboard" class="w-full h-full object-cover transition-transform duration-500">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
             </div>
-            <!-- Project Content -->
-            <div class="flex flex-col justify-center md:w-1/2">
+            <div class="flex flex-col justify-center md:w-1/2 mt-6 md:mt-0">
                 <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-2xl font-semibold text-gray-800 dark:text-gray-100">User Dashboard</h3>
-                    <span class="px-3 py-1 text-sm bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300 rounded-full">Full Stack</span>
+                    <h3 class="text-xl md:text-2xl font-semibold text-gray-800 dark:text-gray-100">User Dashboard</h3>
+                    <span class="px-2 py-1 text-xs md:text-sm bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300 rounded-full">Full Stack</span>
                 </div>
-                <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                <p class="text-gray-600 dark:text-gray-400 mb-4 md:mb-6 leading-relaxed">
                     A modern user dashboard application with authentication, analytics, and user management. Built with a focus on usability, responsive design, and real-world dashboard features.
                 </p>
-                <div class="flex space-x-4">
-                    <a href="https://user-dashboaard-uvcd-2fbcf0dmk-nikhil-pandeys-projects-ca529d7f.vercel.app/" target="_blank" class="flex-1 inline-flex items-center justify-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors group">
+                <div class="flex flex-col sm:flex-row space-y-3 sm:space-y-0 sm:space-x-4">
+                    <a href="https://user-dashboaard-uvcd-2fbcf0dmk-nikhil-pandeys-projects-ca529d7f.vercel.app/" target="_blank" class="inline-flex items-center justify-center px-4 py-2 md:px-6 md:py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors group">
                         <i class="fas fa-external-link-alt mr-2 transform group-hover:translate-x-1 transition-transform"></i>
                         Live Demo
                     </a>
-                    <a href="https://github.com/n2023ik/user-dashboard" target="_blank" class="flex-1 inline-flex items-center justify-center px-6 py-3 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors group">
+                    <a href="https://github.com/n2023ik/user-dashboard" target="_blank" class="inline-flex items-center justify-center px-4 py-2 md:px-6 md:py-3 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors group">
                         <i class="fab fa-github mr-2 transform group-hover:rotate-12 transition-transform"></i>
                         Source Code
                     </a>
@@ -242,60 +269,60 @@
 
 <!-- Contact Section -->
 <section id="contact" class="py-20 px-4 md:px-24 bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-950 fade-in">
-    <h2 class="text-4xl font-bold text-center mb-16 gradient-text">Get In Touch</h2>
+    <h2 class="text-4xl font-bold text-center mb-12 md:mb-16 gradient-text">Get In Touch</h2>
     <div class="max-w-5xl mx-auto">
-        <div class="grid md:grid-cols-2 gap-12">
-            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl transform transition-all duration-500 hover:-translate-y-1">
-                <h3 class="text-2xl font-semibold mb-8 text-gray-800 dark:text-gray-100">Let's Connect</h3>
-                <div class="space-y-6">
-                    <a href="mailto:pandeynikhil429@gmail.com" class="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors group">
-                        <div class="w-12 h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+        <div class="grid md:grid-cols-2 gap-8 md:gap-12">
+            <div class="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-2xl shadow-xl transform transition-all duration-500 hover:-translate-y-1">
+                <h3 class="text-xl md:text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-100">Let's Connect</h3>
+                <div class="space-y-4 md:space-y-6">
+                    <a href="mailto:pandeynikhil429@gmail.com" class="flex items-center p-3 md:p-4 bg-gray-50 dark:bg-gray-700 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors group">
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mr-3 md:mr-4 group-hover:scale-110 transition-transform">
                             <i class="fas fa-envelope text-blue-600 dark:text-blue-400"></i>
                         </div>
                         <div>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">Email</p>
-                            <p class="text-gray-700 dark:text-gray-300 font-medium">pandeynikhil429@gmail.com</p>
+                            <p class="text-xs md:text-sm text-gray-500 dark:text-gray-400">Email</p>
+                            <p class="text-gray-700 dark:text-gray-300 font-medium text-sm md:text-base">pandeynikhil429@gmail.com</p>
                         </div>
                     </a>
-                    <a href="tel:+91827364XXX" class="flex items-center p-4 bg-gray-50 dark:bg-gray-700 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors group">
-                        <div class="w-12 h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mr-4 group-hover:scale-110 transition-transform">
+                    <a href="tel:+91827364XXX" class="flex items-center p-3 md:p-4 bg-gray-50 dark:bg-gray-700 rounded-xl hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors group">
+                        <div class="w-10 h-10 md:w-12 md:h-12 bg-purple-100 dark:bg-purple-900 rounded-full flex items-center justify-center mr-3 md:mr-4 group-hover:scale-110 transition-transform">
                             <i class="fas fa-phone text-purple-600 dark:text-purple-400"></i>
                         </div>
                         <div>
-                            <p class="text-sm text-gray-500 dark:text-gray-400">Phone</p>
-                            <p class="text-gray-700 dark:text-gray-300 font-medium">+91 82736464XXX</p>
+                            <p class="text-xs md:text-sm text-gray-500 dark:text-gray-400">Phone</p>
+                            <p class="text-gray-700 dark:text-gray-300 font-medium text-sm md:text-base">+91 82736464XXX</p>
                         </div>
                     </a>
                 </div>
-                <div class="mt-8 flex space-x-4">
+                <div class="mt-6 flex space-x-3 md:space-x-4">
                    <a href="https://www.linkedin.com/in/nikhil-pandey-45b276276" target="_blank" rel="noopener noreferrer" 
-   class="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 
+   class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 
           hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12"
    aria-label="LinkedIn Profile">
-   <i class="fab fa-linkedin-in text-xl"></i>
+   <i class="fab fa-linkedin-in"></i>
 </a>
 
-                    <a href="https://github.com/n2023ik/my-portfoli" target="_blank" class="w-12 h-12 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-gray-900 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12">
-                        <i class="fab fa-github text-xl"></i>
+                    <a href="https://github.com/n2023ik/my-portfoli" target="_blank" class="w-10 h-10 md:w-12 md:h-12 rounded-full bg-gray-100 dark:bg-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 hover:bg-gray-900 hover:text-white transition-all duration-300 transform hover:scale-110 hover:rotate-12">
+                        <i class="fab fa-github"></i>
                     </a>
                 </div>
             </div>
-            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl transform transition-all duration-500 hover:-translate-y-1">
-                <h3 class="text-2xl font-semibold mb-8 text-gray-800 dark:text-gray-100">Send Message</h3>
-                <form action="https://formspree.io/f/mgvyzegz" method="POST" class="space-y-6">
+            <div class="bg-white dark:bg-gray-800 p-6 md:p-8 rounded-2xl shadow-xl transform transition-all duration-500 hover:-translate-y-1">
+                <h3 class="text-xl md:text-2xl font-semibold mb-6 text-gray-800 dark:text-gray-100">Send Message</h3>
+                <form action="https://formspree.io/f/mgvyzegz" method="POST" class="space-y-4 md:space-y-6">
                     <div class="relative">
-                        <input type="text" name="name" placeholder="Your Name" required class="w-full px-6 py-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300">
+                        <input type="text" name="name" placeholder="Your Name" required class="w-full px-4 py-3 md:px-6 md:py-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300">
                         <i class="fas fa-user absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                     </div>
                     <div class="relative">
-                        <input type="email" name="email" placeholder="Your Email" required class="w-full px-6 py-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300">
+                        <input type="email" name="email" placeholder="Your Email" required class="w-full px-4 py-3 md:px-6 md:py-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300">
                         <i class="fas fa-envelope absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
                     </div>
                     <div class="relative">
-                        <textarea name="message" placeholder="Your Message" rows="4" required class="w-full px-6 py-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"></textarea>
+                        <textarea name="message" placeholder="Your Message" rows="4" required class="w-full px-4 py-3 md:px-6 md:py-4 rounded-xl border-2 border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-900 focus:ring-2 focus:ring-blue-600 focus:border-transparent transition-all duration-300"></textarea>
                         <i class="fas fa-comment absolute right-4 top-6 text-gray-400"></i>
                     </div>
-                    <button type="submit" class="w-full bg-blue-600 text-white py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center group">
+                    <button type="submit" class="w-full bg-blue-600 text-white py-3 md:py-4 rounded-xl font-semibold hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center group">
                         <span>Send Message</span>
                         <i class="fas fa-paper-plane ml-2 transform group-hover:translate-x-1 transition-transform"></i>
                     </button>
@@ -345,21 +372,26 @@
     </div>
 </footer>
 
-<!-- Theme Toggle & Carousel Script -->
+<!-- Theme Toggle Script -->
 <script>
     // Toggle dark mode
     const themeToggle = document.getElementById('theme-toggle');
-    themeToggle.addEventListener('click', () => {
-      document.documentElement.classList.toggle('dark');
-      localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-    });
-
-    // On page load, set dark mode from localStorage
-    if (localStorage.getItem('theme') === 'dark') {
-      document.documentElement.classList.add('dark');
+    const htmlElement = document.documentElement;
+    
+    // Check for saved theme preference or respect OS preference
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    
+    if (savedTheme === 'dark' || (!savedTheme && prefersDarkScheme.matches)) {
+        htmlElement.classList.add('dark');
     } else {
-      document.documentElement.classList.remove('dark');
+        htmlElement.classList.remove('dark');
     }
+    
+    themeToggle.addEventListener('click', () => {
+        htmlElement.classList.toggle('dark');
+        localStorage.setItem('theme', htmlElement.classList.contains('dark') ? 'dark' : 'light');
+    });
 
     // Intersection Observer for animations
     const observer = new IntersectionObserver((entries) => {
@@ -374,91 +406,18 @@
         observer.observe(section);
     });
 
-    // Certificate Carousel Navigation
-    const carousel = document.querySelector('.certificate-carousel');
-    const certificates = document.querySelectorAll('.certificate-card');
-    const dots = document.querySelectorAll('.certificate-carousel + div button');
-    let currentIndex = 0;
-
-    function updateCarousel() {
-        const cardWidth = certificates[0].offsetWidth + 32; // card width + gap
-        carousel.scrollTo({
-            left: currentIndex * cardWidth,
-            behavior: 'smooth'
-        });
-        // Update dots
-        dots.forEach((dot, idx) => {
-            dot.classList.toggle('bg-blue-500', idx === currentIndex);
-        });
-    }
-
-    // Left/Right arrow buttons
-    const leftBtn = document.querySelector('.certificate-carousel').parentElement.querySelector('button:first-of-type');
-    const rightBtn = document.querySelector('.certificate-carousel').parentElement.querySelector('button:last-of-type');
-
-    leftBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + certificates.length) % certificates.length;
-        updateCarousel();
-    });
-    rightBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % certificates.length;
-        updateCarousel();
-    });
-
-    // Initialize carousel position
-    updateCarousel();
-</script>
-
-<!-- Carousel Script -->
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const cards = document.querySelectorAll('.certificate-card');
-    const leftArrow = document.getElementById('left-arrow');
-    const rightArrow = document.getElementById('right-arrow');
-    const dots = document.querySelectorAll('.dot');
-    let currentIndex = 0;
-
-    function showCard(idx, direction = 0) {
-        cards.forEach((card, i) => {
-            card.style.display = i === idx ? 'block' : 'none';
-            card.style.transform = '';
-            card.style.opacity = i === idx ? '1' : '0';
-        });
-        // Animate slide
-        if (direction !== 0) {
-            cards[idx].style.transform = `translateX(${direction * 100}%)`;
-            setTimeout(() => {
-                cards[idx].style.transition = 'transform 0.5s, opacity 0.5s';
-                cards[idx].style.transform = 'translateX(0)';
-            }, 10);
-            setTimeout(() => {
-                cards[idx].style.transition = '';
-            }, 510);
+    // Marquee animation for certificates
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
         }
-        dots.forEach((dot, i) => {
-            dot.classList.toggle('bg-blue-500', i === idx);
-            dot.classList.toggle('bg-gray-300', i !== idx);
-        });
-    }
-    leftArrow.onclick = () => {
-        let prev = (currentIndex - 1 + cards.length) % cards.length;
-        showCard(prev, -1);
-        currentIndex = prev;
-    };
-    rightArrow.onclick = () => {
-        let next = (currentIndex + 1) % cards.length;
-        showCard(next, 1);
-        currentIndex = next;
-    };
-    dots.forEach((dot, idx) => {
-        dot.onclick = () => {
-            let direction = idx > currentIndex ? 1 : -1;
-            showCard(idx, direction);
-            currentIndex = idx;
-        };
-    });
-    showCard(0);
-});
+        .animate-marquee {
+            animation: marquee 20s linear infinite;
+        }
+    `;
+    document.head.appendChild(style);
 </script>
 </body>
 </html>
