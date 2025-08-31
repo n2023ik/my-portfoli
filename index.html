@@ -4,26 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nikhil Pandey | Aspiring CS Professional</title>
-    <meta name="description" content="Portfolio of Nikhil Pandey, showcasing skills, projects, and achievements in computer science.">
-<!-- ✅ SEO Meta Tags -->
-<meta name="keywords" content="Nikhil Pandey, Portfolio, Computer Science, Web Development, Projects, Aspiring CS Professional, HTML, CSS, JavaScript, React, MongoDB, GitHub, GLA University">
-<meta name="author" content="Nikhil Pandey">
-    <!-- Google Verification -->
+    <meta name="description" content="Portfolio of Nikhil Pandey, showcasing skills, projects, and achievements in computer science and web development.">
+    <meta name="keywords" content="Nikhil Pandey, Portfolio, Computer Science, Web Development, Projects, Aspiring CS Professional, HTML, CSS, JavaScript, React, MongoDB, GitHub, GLA University">
+    <meta name="author" content="Nikhil Pandey">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💻</text></svg>">
+    
     <meta name="google-site-verification" content="RvwPo6HEz_M872rtPaeFGuR5-4_zCwr-tewGM3ch0oE" />
 
-<!-- ✅ Open Graph (for Facebook, LinkedIn, WhatsApp preview) -->
-<meta property="og:title" content="Nikhil Pandey | Aspiring CS Professional">
-<meta property="og:description" content="Explore the portfolio of Nikhil Pandey – skills, projects, and achievements in Computer Science and Web Development.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://n2023ik.github.io/my-portfoli/">
-<meta property="og:image" content="https://github.com/n2023ik/my-portfoli/blob/main/Gemini_Generated_Image_3m5bpu3m5bpu3m5b.png?raw=true">
+    <meta property="og:title" content="Nikhil Pandey | Aspiring CS Professional">
+    <meta property="og:description" content="Explore the portfolio of Nikhil Pandey – skills, projects, and achievements in Computer Science and Web Development.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://n2023ik.github.io/my-portfoli/">
+    <meta property="og:image" content="https://github.com/n2023ik/my-portfoli/blob/main/Gemini_Generated_Image_3m5bpu3m5bpu3m5b.png?raw=true">
 
-<!-- ✅ Twitter Card (for Twitter/X preview) -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Nikhil Pandey | Aspiring CS Professional">
-<meta name="twitter:description" content="Portfolio of Nikhil Pandey, showcasing skills, projects, and achievements in computer science.">
-<meta name="twitter:image" content="https://github.com/n2023ik/my-portfoli/blob/main/Gemini_Generated_Image_3m5bpu3m5bpu3m5b.png?raw=true">
-
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Nikhil Pandey | Aspiring CS Professional">
+    <meta name="twitter:description" content="Portfolio of Nikhil Pandey, showcasing skills, projects, and achievements in computer science.">
+    <meta name="twitter:image" content="https://github.com/n2023ik/my-portfoli/blob/main/Gemini_Generated_Image_3m5bpu3m5bpu3m5b.png?raw=true">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
@@ -33,7 +30,7 @@
             --primary-dark: #8B5CF6;  /* Violet 500 */
             --accent-light: #10B981;  /* Green 500 */
             --accent-dark: #34D399;   /* Green 400 */
-            --text-light: #1f2937;    /* Slate 800 */
+            --text-light: #1f2937;   /* Slate 800 */
             --text-dark: #e2e8f0;     /* Slate 200 */
             --bg-light: #f9fafb;     /* Slate 50 */
             --bg-dark: #0f172a;       /* Slate 900 */
@@ -250,7 +247,7 @@
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover::after {
+        .nav-links a:hover::after, .nav-links a.active::after {
             width: 100%;
         }
 
@@ -683,6 +680,13 @@
             font-size: 1.4rem;
             margin-bottom: 10px;
         }
+        
+        .timeline-content .institution {
+            font-size: 1rem;
+            font-style: italic;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
 
         .timeline-content p {
             color: var(--text-light);
@@ -1003,6 +1007,28 @@
             background: var(--gradient);
             color: white;
             transform: translateY(-5px) rotate(10deg);
+        }
+        
+        .whatsapp-button {
+            background-color: #25D366;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            transition: all 0.3s;
+            margin-top: 30px;
+            border: none;
+        }
+
+        .whatsapp-button:hover {
+            background-color: #1ebe5d;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
         }
 
         .form-group { margin-bottom: 25px; }
@@ -1355,17 +1381,19 @@
             <div class="timeline fade-in">
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-date">Completed</div>
-                        <h3>High School</h3>
-                        <p>Completed with a strong foundation in science and mathematics, developing critical thinking and problem-solving skills.</p>
+                        <div class="timeline-date">2022 - Present</div>
+                        <h3>Diploma in Computer Science</h3>
+                        <p class="institution">GLA University, Mathura</p>
+                        <p>Pursuing a comprehensive curriculum focused on programming, algorithms, software development, and modern computer systems.</p>
                     </div>
                 </div>
                 
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <div class="timeline-date">pursuing</div>
-                        <h3>Diploma in Computer Science</h3>
-                        <p>Currently pursuing, focusing on programming, algorithms, software development, and modern computer systems.</p>
+                        <div class="timeline-date">2020 - 2022</div>
+                        <h3>High School</h3>
+                        <p class="institution">St. Andrews Public School</p>
+                        <p>Completed with a strong foundation in science and mathematics, developing critical thinking and problem-solving skills.</p>
                     </div>
                 </div>
             </div>
@@ -1377,7 +1405,7 @@
         <div class="container">
             <div class="section-title fade-in">
                 <h2 class="gradient-text">Certifications</h2>
-                <p>My achievements and professional certifications</p>
+                <p>My achievements and professional certifications.</p>
             </div>
             
             <div class="certificates-container fade-in">
@@ -1388,7 +1416,7 @@
                         </div>
                         <div class="certificate-info">
                             <h3>IBM Full Stack Software Developer Assessment</h3>
-                            <p>Certified in Full Stack Software Developer Assessment by IBM (via Coursera) – Skilled in front-end & back-end development, database integration, and full-stack web application deployment.</p>
+                            <p>Certified by IBM (via Coursera) in front-end & back-end development, database integration, and full-stack web application deployment.</p>
                             <a href="https://media.licdn.com/dms/image/v2/D4D22AQHjc5ogTrPLTQ/feedshare-shrink_800/B4DZiTACXYH4Ak-/0/1754812921271?e=1757548800&v=beta&t=iu4Lefvv0Yyjz3FqZq4qq-ZG9mZAEiSSRmJYTvGpS8E" target="_blank" class="certificate-link">
                                 <span>View Certificate</span>
                                 <i class="fas fa-external-link-alt"></i>
@@ -1401,8 +1429,8 @@
                             <img src="https://media.licdn.com/dms/image/v2/D4D22AQHKncZdD4aIhw/feedshare-shrink_800/B4DZd9eqboGgAg-/0/1750156886941?e=1759363200&v=beta&t=Z3MI2XvAc7vvaBYrMumHe3VYcyos-b_QR6slCOfECHo" alt="DSA Mastery Certificate" class="certificate-img">
                         </div>
                         <div class="certificate-info">
-                            <h3>DSA Mastery Certificate</h3>
-                            <p>Completed intensive training in Data Structures and Algorithms, mastering essential concepts like arrays, linked lists, trees, graphs, sorting algorithms, and problem-solving techniques.</p>
+                            <h3>DSA Mastery</h3>
+                            <p>Completed intensive training in Data Structures and Algorithms, mastering essential concepts like arrays, trees, graphs, and sorting algorithms.</p>
                             <a href="https://media.licdn.com/dms/image/v2/D4D22AQHKncZdD4aIhw/feedshare-shrink_800/B4DZd9eqboGgAg-/0/1750156886941?e=1759363200&v=beta&t=Z3MI2XvAc7vvaBYrMumHe3VYcyos-b_QR6slCOfECHo" target="_blank" class="certificate-link">
                                 <span>View Certificate</span>
                                 <i class="fas fa-external-link-alt"></i>
@@ -1416,7 +1444,7 @@
                         </div>
                         <div class="certificate-info">
                             <h3>AI Fundamentals</h3>
-                            <p>Comprehensive training in Artificial Intelligence covering machine learning concepts, neural networks, natural language processing, and practical applications of AI technologies.</p>
+                            <p>Comprehensive training in Artificial Intelligence covering machine learning concepts, neural networks, NLP, and practical applications of AI.</p>
                             <a href="https://media.licdn.com/dms/image/v2/D4D22AQH1OAN34D_l4A/feedshare-shrink_800/B4DZdAdWLWHkAg-/0/1749133127328?e=1759363200&v=beta&t=wT2No-CFnNLvxZx2wywbsTrabA56uHv8SYLuJHM_-Wo" target="_blank" class="certificate-link">
                                 <span>View Certificate</span>
                                 <i class="fas fa-external-link-alt"></i>
@@ -1440,11 +1468,11 @@
                     
                     <div class="certificate-card">
                         <div class="certificate-img-container">
-                            <img src="https://media.licdn.com/dms/image/v2/D4D22AQHIrDibGPTP7w/feedshare-shrink_800/B4DZgUR6RsGgAs-/0/1752686898105?e=1759363200&v=beta&t=jJhO2r0yfKW6VXpA0EHYI-Vdr3RGLvOnuZNJdHlWRxI alt="New Certificate" class="certificate-img">
+                           <img src="https://media.licdn.com/dms/image/v2/D4D22AQHIrDibGPTP7w/feedshare-shrink_800/B4DZgUR6RsGgAs-/0/1752686898105?e=1759363200&v=beta&t=jJhO2r0yfKW6VXpA0EHYI-Vdr3RGLvOnuZNJdHlWRxI" alt="SQL Basic Certificate" class="certificate-img">
                         </div>
                         <div class="certificate-info">
-                            <h3> SQL (Basic)</h3>
-                            <p>Certified in SQL (Basic) by HackerRank on 16th July 2025 – Nikhil Pandey successfully passed the skill certification test.</p>
+                            <h3>SQL (Basic)</h3>
+                            <p>Certified in SQL (Basic) by HackerRank on July 16, 2024. This certification validates my foundational skills in database querying and management.</p>
                             <a href="https://media.licdn.com/dms/image/v2/D4D22AQHIrDibGPTP7w/feedshare-shrink_800/B4DZgUR6RsGgAs-/0/1752686898105?e=1759363200&v=beta&t=jJhO2r0yfKW6VXpA0EHYI-Vdr3RGLvOnuZNJdHlWRxI" target="_blank" class="certificate-link">
                                 <span>View Certificate</span>
                                 <i class="fas fa-external-link-alt"></i>
@@ -1457,15 +1485,8 @@
                             <img src="https://media.licdn.com/dms/image/v2/D4D22AQGv_89haM235Q/feedshare-shrink_800/B4DZgnjwz8HsAg-/0/1753010346682?e=1759363200&v=beta&t=fcdtruIElrTaaXGvd92otVyKa8kHL-H6GyJhIWped4g" alt="CSS (Basic) Certificate" class="certificate-img">
                         </div>
                         <div class="certificate-info">
-                            <h3>CSS (Basic) Certificate</h3>
-                            <p>Excited to share that I've earned the CSS (Basic) Certificate from HackerRank!<br>
-                                🗓️ <strong>Earned on:</strong> 20th July, 2025<br>
-                                This certification validates my understanding of:<br>
-                                ✅ CSS fundamentals<br>
-                                ✅ Box model and layout<br>
-                                ✅ Styling elements with precision<br>
-                                ✅ Building clean and responsive UIs
-                            </p>
+                            <h3>CSS (Basic)</h3>
+                             <p>Certified in CSS (Basic) by HackerRank on July 20, 2024. This validates my core understanding of styling, layout, and responsive design principles.</p>
                             <a href="https://media.licdn.com/dms/image/v2/D4D22AQGv_89haM235Q/feedshare-shrink_800/B4DZgnjwz8HsAg-/0/1753010346682?e=1759363200&v=beta&t=fcdtruIElrTaaXGvd92otVyKa8kHL-H6GyJhIWped4g" target="_blank" class="certificate-link">
                                 <span>View Certificate</span>
                                 <i class="fas fa-external-link-alt"></i>
@@ -1489,7 +1510,7 @@
                     <div class="timeline-content">
                         <h3>Real-Time Chat Application</h3>
                         <img src="https://github.com/n2023ik/my-portfoli/blob/main/Screenshot%202025-08-16%20233126.png?raw=true" alt="Real-Time Chat Application" class="project-img">
-                        <p>A real-time chat platform with Google Sign-In, instant messaging via WebSockets, and MongoDB for message storage. Features include typing indicators, chat history, and read receipts. <strong>Currently in the final deployment stage, where I'm actively improving features and fixing issues.</strong></p>
+                        <p>A full-stack chat platform with Google Sign-In, instant messaging via WebSockets, and MongoDB for message storage. Features include typing indicators and chat history.</p>
                         <div class="project-tags">
                             <span class="project-tag">Next.js</span>
                             <span class="project-tag">Node.js</span>
@@ -1512,6 +1533,7 @@
                             <span class="project-tag">HTML</span>
                             <span class="project-tag">CSS</span>
                             <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">Responsive Design</span>
                         </div>
                         <div class="project-links">
                             <a href="https://n2023ik-git-main-nikhil-pandeys-projects-ca529d7f.vercel.app/" target="_blank" class="project-link demo"><i class="fas fa-external-link-alt"></i><span>Live Demo</span></a>
@@ -1578,15 +1600,17 @@
                             <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                             <div class="contact-text">
                                 <h4>Location</h4>
-                                <p>India</p>
+                                <p>Mathura, Uttar Pradesh, India</p>
                             </div>
                         </div>
                     </div>
                     <div class="social-links">
                         <a href="https://www.linkedin.com/in/nikhil-pandey-45b276276" target="_blank" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         <a href="https://github.com/n2023ik" target="_blank" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     </div>
+                    <a href="https://wa.me/91827364629" class="whatsapp-button" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                    </a>
                 </div>
                 
                 <div class="contact-form">
@@ -1630,7 +1654,6 @@
                     <div class="footer-social">
                         <a href="https://www.linkedin.com/in/nikhil-pandey-45b276276" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                         <a href="https://github.com/n2023ik" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
@@ -1646,7 +1669,7 @@
                     <h3>Contact Info</h3>
                     <div class="footer-links">
                         <a href="mailto:pandeynikhil429@gmail.com"><i class="fas fa-envelope"></i><span>pandeynikhil429@gmail.com</span></a>
-                        <a href="#"><i class="fas fa-map-marker-alt"></i><span>India</span></a>
+                        <a href="#"><i class="fas fa-map-marker-alt"></i><span>Mathura, UP, India</span></a>
                     </div>
                 </div>
             </div>
@@ -1691,6 +1714,8 @@
 
             const applyTheme = (theme) => {
                 bodyElement.classList.toggle('dark', theme === 'dark');
+                document.documentElement.classList.toggle('dark', theme === 'dark');
+                document.documentElement.classList.toggle('light', theme === 'light');
                 moonIcon.style.display = theme === 'dark' ? 'none' : 'inline-block';
                 sunIcon.style.display = theme === 'dark' ? 'inline-block' : 'none';
                 localStorage.setItem('theme', theme);
