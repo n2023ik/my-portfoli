@@ -344,12 +344,12 @@
         }
 
           .hero-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-    object-position: center 25%; /* Add this line */
-}
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+            object-position: center 25%;
+        }
 
         .hero-image-container:hover {
             transform: scale(1.05);
@@ -381,7 +381,7 @@
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
-            margin-bottom: 100px; /* UPDATED: Added margin to prevent overlap */
+            margin-bottom: 100px;
         }
 
         .btn {
@@ -1082,6 +1082,21 @@
             background: var(--gradient-hover);
         }
 
+        /* Iframe Container for Assistant */
+        .iframe-container {
+            background: var(--card-light);
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+        body.dark .iframe-container {
+            background: var(--card-dark);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
         /* Footer */
         footer {
             background: var(--bg-light);
@@ -1200,6 +1215,113 @@
             transform: translateY(-5px) rotate(10deg);
             background: var(--gradient-hover);
         }
+
+        /* AI Assistant Button */
+        .ai-assistant-btn {
+            position: fixed;
+            bottom: 40px;
+            left: 40px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--gradient);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 999;
+            border: none;
+            box-shadow: 0 5px 15px var(--shadow-color-light);
+        }
+
+        body.dark .ai-assistant-btn {
+            box-shadow: 0 5px 15px var(--shadow-color-dark);
+        }
+
+        .ai-assistant-btn:hover {
+            transform: translateY(-5px) rotate(-10deg);
+            background: var(--gradient-hover);
+        }
+
+        /* START: New AI Assistant Modal Styles */
+        .ai-modal-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            display: none; /* Initially hidden */
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .ai-modal-container.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .ai-modal-content {
+            position: relative;
+            background: var(--card-light);
+            width: 90%;
+            height: 85%;
+            max-width: 800px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            padding: 20px;
+            transform: scale(0.95);
+            opacity: 0;
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+        
+        body.dark .ai-modal-content {
+            background: var(--card-dark);
+        }
+
+        .ai-modal-container.active .ai-modal-content {
+            transform: scale(1);
+            opacity: 1;
+        }
+
+        .ai-modal-close-btn {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            background: none;
+            border: none;
+            font-size: 2.5rem;
+            line-height: 1;
+            color: var(--text-light);
+            opacity: 0.7;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 2001;
+        }
+        
+        body.dark .ai-modal-close-btn {
+            color: var(--text-dark);
+        }
+
+        .ai-modal-close-btn:hover {
+            opacity: 1;
+            transform: rotate(90deg);
+        }
+        
+        #ai-iframe {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            border: none;
+        }
+        /* END: New AI Assistant Modal Styles */
         
         /* Resume Section Button */
         .btn-dark-download {
@@ -1235,7 +1357,7 @@
             .timeline-item .timeline-content::before,
             .timeline-item:nth-child(odd) .timeline-content::before,
             .timeline-item:nth-child(even) .timeline-content::before {
-                left: -42px; /* calc(20px - 60px - 2px) */
+                left: -42px;
                 right: auto;
             }
             section { padding: 80px 0; }
@@ -1246,7 +1368,7 @@
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
-                top: 81px; /* Navbar height + border */
+                top: 81px;
                 left: -100%;
                 width: 100%;
                 height: calc(100vh - 81px);
@@ -1267,6 +1389,8 @@
             .hero-content p { font-size: 1.1rem; }
             .section-title h2 { font-size: 2.2rem; }
             .back-to-top { width: 50px; height: 50px; bottom: 30px; right: 30px; }
+            /* Responsive AI Assistant Button */
+            .ai-assistant-btn { width: 50px; height: 50px; bottom: 30px; left: 30px; }
         }
 
         @media (max-width: 576px) {
@@ -1279,7 +1403,20 @@
             .contact-info, .contact-form { padding: 30px; }
             section { padding: 70px 0; }
             .hero-image-container { width: 180px; height: 180px; }
+
+            /* Modal responsive adjustments */
+            .ai-modal-content {
+                width: 95%;
+                height: 90%;
+                padding: 10px;
+            }
+            .ai-modal-close-btn {
+                top: 5px;
+                right: 10px;
+                font-size: 2rem;
+            }
         }
+
     </style>
 </head>
 <body>
@@ -1545,39 +1682,39 @@
                 </div>
 
                 <div class="timeline-item">
-                       <div class="timeline-content">
-                            <h3>Harmony Music Player</h3>
-                            <img src="https://raw.githubusercontent.com/n2023ik/my-portfoli/eb08c09319c228c52ea322e383182e0427f07e76/image.png" alt="Harmony Player" class="project-img">
-                            <p>A sleek, web-based music player built with pure HTML, CSS, and JavaScript. It features animated controls, playlist support, and a modern glassmorphism UI for a stylish listening experience.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">JavaScript</span>
-                                <span class="project-tag">UI/UX</span>
-                                <span class="project-tag">CSS</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://harmony-player.vercel.app/" target="_blank" class="project-link demo"><i class="fas fa-external-link-alt"></i><span>Live Demo</span></a>
-                            </div>
-                        </div>
+                                <div class="timeline-content">
+                                    <h3>Harmony Music Player</h3>
+                                    <img src="https://raw.githubusercontent.com/n2023ik/my-portfoli/eb08c09319c228c52ea322e383182e0427f07e76/image.png" alt="Harmony Player" class="project-img">
+                                    <p>A sleek, web-based music player built with pure HTML, CSS, and JavaScript. It features animated controls, playlist support, and a modern glassmorphism UI for a stylish listening experience.</p>
+                                    <div class="project-tags">
+                                        <span class="project-tag">JavaScript</span>
+                                        <span class="project-tag">UI/UX</span>
+                                        <span class="project-tag">CSS</span>
+                                    </div>
+                                    <div class="project-links">
+                                        <a href="https://harmony-player.vercel.app/" target="_blank" class="project-link demo"><i class="fas fa-external-link-alt"></i><span>Live Demo</span></a>
+                                    </div>
+                                </div>
                 </div>
-                        <div class="timeline-item">
-   <div class="timeline-content">
-    <h3>Packman Game</h3>
-    <img src="https://github.com/n2023ik/my-portfoli/blob/main/Screenshot%202025-09-12%20030430.png?raw=true" alt="Packman Game" class="project-img">
-    <p>A classic Packman-style game built with Flutter and deployed on Vercel. This project helped me explore Flutter Web deployment and performance optimization for browser-based games.</p>
-    <div class="project-tags">
-      <span class="project-tag">Flutter</span>
-      <span class="project-tag">Dart</span>
-      <span class="project-tag">Vercel</span>
+                            <div class="timeline-item">
+    <div class="timeline-content">
+        <h3>Packman Game</h3>
+        <img src="https://github.com/n2023ik/my-portfoli/blob/main/Screenshot%202025-09-12%20030430.png?raw=true" alt="Packman Game" class="project-img">
+        <p>A classic Packman-style game built with Flutter and deployed on Vercel. This project helped me explore Flutter Web deployment and performance optimization for browser-based games.</p>
+        <div class="project-tags">
+            <span class="project-tag">Flutter</span>
+            <span class="project-tag">Dart</span>
+            <span class="project-tag">Vercel</span>
+        </div>
+        <div class="project-links">
+            <a href="https://packman-n2023ik-nikhil-pandeys-projects-ca529d7f.vercel.app/" target="_blank" class="project-link demo">
+                <i class="fas fa-external-link-alt"></i><span>Live Demo</span>
+            </a>
+            <a href="https://github.com/n2023ik/packman" target="_blank" class="project-link code">
+                <i class="fab fa-github"></i><span>Source Code</span>
+            </a>
+        </div>
     </div>
-    <div class="project-links">
-      <a href="https://packman-n2023ik-nikhil-pandeys-projects-ca529d7f.vercel.app/" target="_blank" class="project-link demo">
-        <i class="fas fa-external-link-alt"></i><span>Live Demo</span>
-      </a>
-      <a href="https://github.com/n2023ik/packman" target="_blank" class="project-link code">
-        <i class="fab fa-github"></i><span>Source Code</span>
-      </a>
-    </div>
-  </div>
 </div>
 
 
@@ -1667,6 +1804,8 @@
             </div>
         </div>
     </section>
+    
+    
 
     <footer>
         <div class="container">
@@ -1684,6 +1823,7 @@
                     <div class="footer-links">
                         <a href="#about"><i class="fas fa-chevron-right"></i><span>About</span></a>
                         <a href="#projects"><i class="fas fa-chevron-right"></i><span>Projects</span></a>
+                        <a href="#assistance"><i class="fas fa-chevron-right"></i><span>Assistant</span></a>
                         <a href="#contact"><i class="fas fa-chevron-right"></i><span>Contact</span></a>
                         <a href="#resume"><i class="fas fa-chevron-right"></i><span>Resume</span></a>
                     </div>
@@ -1705,7 +1845,18 @@
     <button class="back-to-top" id="back-to-top" aria-label="Back to top">
         <i class="fas fa-arrow-up"></i>
     </button>
-
+    
+    <button class="ai-assistant-btn" id="ai-assistant-btn" aria-label="Open AI Assistant">
+        <i class="fas fa-robot"></i>
+    </button>
+    
+    <div id="ai-modal" class="ai-modal-container">
+        <div class="ai-modal-content">
+            <button id="ai-modal-close" class="ai-modal-close-btn" aria-label="Close AI Assistant">&times;</button>
+            <iframe id="ai-iframe" src="" title="AI Assistant"></iframe>
+        </div>
+    </div>
+    
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Mobile Menu Toggle
@@ -1781,6 +1932,47 @@
             backToTopBtn.addEventListener('click', () => {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             });
+
+            // START: New AI Assistant Modal Logic
+            const aiAssistantBtn = document.getElementById('ai-assistant-btn');
+            const aiModal = document.getElementById('ai-modal');
+            const aiModalCloseBtn = document.getElementById('ai-modal-close');
+            const aiIframe = document.getElementById('ai-iframe');
+            const aiAssistantUrl = 'https://assitance.vercel.app/';
+
+            const openModal = () => {
+                // Set the src only when opening to lazy load the iframe
+                if (aiIframe.src !== aiAssistantUrl) {
+                    aiIframe.src = aiAssistantUrl;
+                }
+                aiModal.classList.add('active');
+                bodyElement.style.overflow = 'hidden'; // Prevent background scrolling
+            };
+
+            const closeModal = () => {
+                aiModal.classList.remove('active');
+                bodyElement.style.overflow = ''; // Restore background scrolling
+                // Optional: You can clear the iframe src to stop any running processes
+                // setTimeout(() => { aiIframe.src = 'about:blank'; }, 400); // Delay for fade-out
+            };
+
+            aiAssistantBtn.addEventListener('click', openModal);
+            aiModalCloseBtn.addEventListener('click', closeModal);
+
+            // Close modal when clicking on the background overlay
+            aiModal.addEventListener('click', (e) => {
+                if (e.target === aiModal) {
+                    closeModal();
+                }
+            });
+
+            // Close modal with the Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && aiModal.classList.contains('active')) {
+                    closeModal();
+                }
+            });
+            // END: New AI Assistant Modal Logic
             
             // Update copyright year
             document.getElementById('year').textContent = new Date().getFullYear();
