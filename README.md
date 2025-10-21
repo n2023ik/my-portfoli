@@ -8,7 +8,7 @@
 
 I'm a passionate front-end developer currently building responsive and modern web applications. I enjoy learning new technologies and love crafting clean and user-friendly interfaces.
 
-- 💼 Currently exploring React.js, Next.js, and Node.js
+- 💼 Currently exploring React.js, Next.js,Mongodb and Node.js
 - 🧠 Learning full-stack development and building real-world projects
 - 📫 Reach me at: [pandeynikhil429@gmail.com](mailto:pandeynikhil429@gmail.com)
 - 🔗 Connect with me on [LinkedIn](https://www.linkedin.com/in/nikhil-pandey-45b276276/)
