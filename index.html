@@ -87,7 +87,6 @@
             color: var(--text-dark);
         }
 
-        /* Top Progress Bar */
         #scroll-progress {
             position: fixed;
             top: 0;
@@ -144,12 +143,6 @@
             0% { transform: translateY(0px) rotate(0deg); }
             50% { transform: translateY(-12px) rotate(1deg); }
             100% { transform: translateY(0px) rotate(0deg); }
-        }
-
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
-            50% { box-shadow: 0 0 30px rgba(212, 175, 55, 0.5); }
-            100% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
         }
 
         @keyframes wave {
@@ -665,11 +658,12 @@
 
         .timeline {
             position: relative;
-            max-width: 840px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px 0;
         }
 
+        /* Central line */
         .timeline::before {
             content: '';
             position: absolute;
@@ -685,8 +679,9 @@
 
         .timeline-item {
             position: relative;
-            margin-bottom: 50px;
-            width: 100%;
+            margin-bottom: 60px;
+            width: 50%;
+            /* Removed the w-100% to let it take 50% width in standard view */
         }
 
         .timeline-item:last-child {
@@ -694,13 +689,13 @@
         }
 
         .timeline-item:nth-child(odd) {
-            padding-right: calc(50% + 32px);
-            text-align: right;
+            left: 0;
+            padding-right: 40px;
         }
 
         .timeline-item:nth-child(even) {
-            padding-left: calc(50% + 32px);
-            text-align: left;
+            left: 50%;
+            padding-left: 40px;
         }
 
         .timeline-content {
@@ -730,28 +725,59 @@
             border-color: rgba(212, 175, 55, 0.3);
         }
 
+        /* The node on the central line */
         .timeline-node {
             position: absolute;
-            top: 24px;
-            width: 18px;
-            height: 18px;
+            top: 30px;
+            width: 20px;
+            height: 20px;
             background: var(--gradient);
             border-radius: 50%;
-            box-shadow: 0 0 0 5px var(--shadow-color-light);
+            box-shadow: 0 0 0 5px var(--bg-light); /* use bg color to cut out the line */
             z-index: 2;
         }
 
         body.dark .timeline-node {
-            box-shadow: 0 0 0 5px var(--shadow-color-dark);
+            box-shadow: 0 0 0 5px var(--bg-dark);
         }
 
         .timeline-item:nth-child(odd) .timeline-node {
-            right: -41px;
+            right: -10px; /* Aligns node to center line */
         }
 
         .timeline-item:nth-child(even) .timeline-node {
-            left: -41px;
+            left: -10px; /* Aligns node to center line */
         }
+        
+        /* Arrow pointing to node */
+        .timeline-item:nth-child(odd) .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            right: -14px;
+            border-width: 14px 0 14px 14px;
+            border-style: solid;
+            border-color: transparent transparent transparent var(--card-light);
+        }
+        
+        body.dark .timeline-item:nth-child(odd) .timeline-content::after {
+            border-color: transparent transparent transparent var(--card-dark);
+        }
+
+        .timeline-item:nth-child(even) .timeline-content::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: -14px;
+            border-width: 14px 14px 14px 0;
+            border-style: solid;
+            border-color: transparent var(--card-light) transparent transparent;
+        }
+        
+        body.dark .timeline-item:nth-child(even) .timeline-content::after {
+            border-color: transparent var(--card-dark) transparent transparent;
+        }
+
 
         .timeline-date {
             display: inline-block;
@@ -789,6 +815,35 @@
             font-size: 0.98rem;
             line-height: 1.65;
         }
+        
+        /* Specific override for single column Experience section to match Education layout */
+        #experience .timeline-item {
+            width: 100%;
+            left: 0;
+            padding-right: 0;
+            padding-left: calc(50% + 40px);
+        }
+        #experience .timeline-item:nth-child(odd) {
+             padding-left: calc(50% + 40px);
+             padding-right: 0;
+        }
+        
+        #experience .timeline-item .timeline-node {
+             left: 50%;
+             transform: translateX(-50%);
+             right: auto;
+        }
+        
+        #experience .timeline-item .timeline-content::after {
+             left: -14px;
+             right: auto;
+             border-width: 14px 14px 14px 0;
+             border-color: transparent var(--card-light) transparent transparent;
+        }
+        body.dark #experience .timeline-item .timeline-content::after {
+             border-color: transparent var(--card-dark) transparent transparent;
+        }
+
 
         .media-highlight-box {
             background: linear-gradient(135deg, rgba(139, 90, 43, 0.08) 0%, rgba(47, 79, 79, 0.08) 100%);
@@ -1280,7 +1335,6 @@
 
         textarea.form-control { min-height: 140px; resize: vertical; }
 
-        /* Form Submission Message Styles */
         .form-status-msg {
             padding: 14px 18px;
             border-radius: 12px;
@@ -1519,19 +1573,49 @@
         }
 
         @media (max-width: 992px) {
-            .timeline::before { left: 20px; transform: translateX(0); }
-            .timeline-item,
+            .timeline::before { left: 30px; transform: translateX(0); }
+            
+            .timeline-item {
+                width: 100%;
+                margin-bottom: 40px;
+            }
+            
             .timeline-item:nth-child(odd), 
             .timeline-item:nth-child(even) {
                 padding-right: 0;
-                padding-left: 54px;
+                padding-left: 70px; /* Space for node and line */
+                left: 0;
                 text-align: left;
             }
+            
             .timeline-item:nth-child(odd) .timeline-node,
             .timeline-item:nth-child(even) .timeline-node {
-                left: 11px;
+                left: 20px;
                 right: auto;
             }
+            
+            .timeline-item:nth-child(odd) .timeline-content::after,
+            .timeline-item:nth-child(even) .timeline-content::after {
+                left: -14px;
+                right: auto;
+                border-width: 14px 14px 14px 0;
+                border-color: transparent var(--card-light) transparent transparent;
+            }
+            
+            body.dark .timeline-item:nth-child(odd) .timeline-content::after,
+            body.dark .timeline-item:nth-child(even) .timeline-content::after {
+                border-color: transparent var(--card-dark) transparent transparent;
+            }
+            
+            /* Apply same to experience section */
+            #experience .timeline-item {
+                padding-left: 70px;
+            }
+            #experience .timeline-item .timeline-node {
+                left: 20px;
+                transform: none;
+            }
+
             .contact-container { grid-template-columns: 1fr; }
             .hero-content h1 { font-size: 2.8rem; }
         }
@@ -1710,9 +1794,10 @@
             </div>
             
             <div class="timeline fade-in">
-                <div class="timeline-item" style="width: 100%; max-width: 840px; margin: 0 auto;">
-                    <div class="timeline-node" style="left: 11px;"></div>
-                    <div class="timeline-content" style="margin-left: 45px;">
+                <!-- Using a specific single-column timeline item here -->
+                <div class="timeline-item">
+                    <div class="timeline-node"></div>
+                    <div class="timeline-content">
                         <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 10px; margin-bottom: 12px;">
                             <div>
                                 <h3 style="font-size: 1.5rem;">Product Success Intern</h3>
