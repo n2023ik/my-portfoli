@@ -4,11 +4,18 @@
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
   const fine = matchMedia('(hover:hover) and (pointer:fine)').matches;
 
-  /* Set the demo login here. Use a dedicated throwaway demo account, never a personal one. */
-  const DEMO = { email: 'pandeynikhil429@gmail.com', pass: 'Ajay1234nik@' };
-  $('#demoEmail').textContent = DEMO.email;
-  $('#demoPass').textContent = DEMO.pass;
-  $('#demoToggle').addEventListener('click', () => $('#demoCreds').classList.toggle('open'));
+  /* Demo login: fill in a dedicated throwaway account. Never use a personal email or a password you use elsewhere.
+     While the values below start with YOUR_, the demo box stays hidden. */
+  const DEMO = { email: 'YOUR_DEMO_EMAIL', pass: 'YOUR_DEMO_PASSWORD' };
+  const demoBox = $('.demo-box');
+  if (demoBox) {
+    if (DEMO.email.startsWith('YOUR_')) demoBox.style.display = 'none';
+    else {
+      $('#demoEmail').textContent = DEMO.email;
+      $('#demoPass').textContent = DEMO.pass;
+      $('#demoToggle').addEventListener('click', () => $('#demoCreds').classList.toggle('open'));
+    }
+  }
 
   /* Theme */
   const body = document.body, themeBtn = $('#themeBtn');
@@ -143,7 +150,11 @@
   /* AI modal */
   const modal = $('#aiModal'), frame = $('#aiFrame'), AI = 'https://assitance.vercel.app/';
   const closeM = () => { modal.classList.remove('open'); body.style.overflow = ''; };
-  $('#ai-btn').addEventListener('click', () => { if (!frame.src || frame.src === location.href) frame.src = AI; modal.classList.add('open'); body.style.overflow = 'hidden'; });
+  $('#ai-btn').addEventListener('click', () => {
+    /* Check the attribute, not frame.src: with src="" the resolved URL drops the #hash and never equals location.href */
+    if (!frame.getAttribute('src')) frame.setAttribute('src', AI);
+    modal.classList.add('open'); body.style.overflow = 'hidden';
+  });
   $('#aiClose').addEventListener('click', closeM);
   modal.addEventListener('click', e => { if (e.target === modal) closeM(); });
   addEventListener('keydown', e => { if (e.key === 'Escape') closeM(); });
