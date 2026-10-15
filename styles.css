@@ -274,7 +274,8 @@ body.dark .modal-ext{color:var(--gold-l)}
 }
 @media(max-width:820px){
   .menu-btn{display:grid;place-items:center}
-  .nav-cta{display:none}
+  .nav-right{gap:6px}
+  .nav-cta{display:inline-flex;align-items:center;gap:7px;padding:8px 10px;font-size:.78rem;white-space:nowrap}
   .nav-links{position:fixed;top:67px;left:-100%;width:100%;height:calc(100vh - 67px);background:var(--bg);flex-direction:column;justify-content:center;gap:28px;transition:left .35s}
   .nav-links.open{left:0}
   .nav-links a{font-size:1.1rem}
@@ -293,6 +294,9 @@ body.dark .modal-ext{color:var(--gold-l)}
   .chip.c2{display:none}
   .contact-box{padding:24px 18px}
   .float-btn{width:42px;height:42px;bottom:20px}#top{right:16px}#ai-btn{left:16px}
+}
+@media(max-width:380px){
+  .logo span{display:none}
 }
 @media(prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
